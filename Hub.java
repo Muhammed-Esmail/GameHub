@@ -9,6 +9,19 @@ public class Hub extends Screen {
 
         super(600, 300, "GameHub");
 
+        // ===== Add the label ===== //
+
+        // configure label
+        JLabel textLabel = new JLabel("<html><center>Welcome to Esmail's Game Hub!<br>Choose a Game.</center></html>");
+        textLabel.setFont(new Font("Arial", Font.BOLD, 25));
+        textLabel.setHorizontalAlignment(JLabel.CENTER);
+        textLabel.setOpaque(true);
+
+        // configure panel
+        JPanel textPanel = new JPanel();
+        textPanel.setLayout(new BorderLayout());
+        textPanel.add(textLabel);
+
         // Create a grid layout
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 100));
 
@@ -47,9 +60,12 @@ public class Hub extends Screen {
 
             // Add it to view
             panel.add(button);
+
         }
 
-        // Add it to frame
-        frame.add(panel);
+        // Add it to view
+        frame.setLayout(new BorderLayout());
+        frame.add(textPanel, BorderLayout.NORTH);
+        frame.add(panel, BorderLayout.CENTER);
     }
 }
