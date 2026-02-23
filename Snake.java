@@ -283,7 +283,7 @@ public class Snake extends Screen implements ActionListener {
     // ======================== DRAWING LOGIC ======================== //
 
     public void draw(Graphics g) {
-        drawGrid(g);
+        // drawGrid(g);
 
         // Draw the food
         drawPixel(g, currentFoodPosition.r, currentFoodPosition.c, Color.red);
@@ -357,6 +357,10 @@ public class Snake extends Screen implements ActionListener {
                 // Right
                 if (pressedRIGHT && currentDirection != Direction.LEFT) {
                     currentDirection = Direction.RIGHT;
+                }
+
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    started = false;
                 }
             }
         });
