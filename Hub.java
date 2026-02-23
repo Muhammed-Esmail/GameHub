@@ -46,6 +46,8 @@ public class Hub extends Screen {
                 }
             });
 
+            button.setFocusable(false);
+
             // ======== Finalization ======== //
 
             // Add it to view
