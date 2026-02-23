@@ -125,7 +125,7 @@ public class Snake extends Screen implements ActionListener {
         // View
         frame.setVisible(true);
 
-        Timer timer = new Timer(200, this);
+        Timer timer = new Timer(150, this);
         timer.start();
 
         setUp();
@@ -157,35 +157,32 @@ public class Snake extends Screen implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Handle Collision
-        point head = snake.getFirst();
 
-        if (gameOver)
+        if (gameOver || !started)
             return;
 
+        // Handle Collision
+        point nextHead = snake.getFirst().move(currentDirection);
+
         // Collision with walls
-        if (!check(head)) {
+        if (!check(nextHead)) {
             gameOver = true;
             System.out.println("Game Over, Hit the Walls!");
             return;
         }
 
-        // Collision with food
-        if (head.equal(currentFoodPosition)) {
-            handleFoodCollision();
-        }
-
         // Collision with self
-        int countHead = 0;
         for (point p : snake) {
-            if (p.equal(head))
-                countHead++;
+            if (p.equal(nextHead)) {
+                gameOver = true;
+                System.out.println("Game Over, Hit your tail!");
+                return;
+            }
         }
 
-        if (countHead >= 2) {
-            gameOver = true;
-            System.out.println("Game Over, Hit your tail!");
-            return;
+        // Collision with food
+        if (nextHead.equal(currentFoodPosition)) {
+            handleFoodCollision();
         }
 
         // Move
@@ -234,14 +231,32 @@ public class Snake extends Screen implements ActionListener {
         // Move head (Add new head)
         point newHead = snake.getFirst().move(currentDirection);
         snake.addFirst(newHead);
+        removeFromGrid(newHead);
+
         // delete tail
         point tail = snake.getLast();
         if (foodEaten > 0) {
             foodEaten--;
         } else {
-            flattened_grid.add(new point(tail));
+            addToGrid(tail);
             snake.removeLast();
         }
+    }
+
+    private void removeFromGrid(point target) {
+        Iterator<point> it = flattened_grid.iterator();
+
+        while (it.hasNext()) {
+            if (it.next().equal(target)) {
+                it.remove();
+                return;
+            }
+        }
+
+    }
+
+    private void addToGrid(point target) {
+        flattened_grid.add(new point(target));
     }
 
     private void handleFoodCollision() {
@@ -270,13 +285,13 @@ public class Snake extends Screen implements ActionListener {
     public void draw(Graphics g) {
         drawGrid(g);
 
+        // Draw the food
+        drawPixel(g, currentFoodPosition.r, currentFoodPosition.c, Color.red);
+
         // Draw the snake
         for (point p : snake) {
             drawPixel(g, p.r, p.c, Color.green);
         }
-
-        // Draw the food
-        drawPixel(g, currentFoodPosition.r, currentFoodPosition.c, Color.red);
     }
 
     // Responsible for drawing a single rectangle on the canvas
