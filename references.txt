@@ -1,11 +1,33 @@
-Bro Code Java Course (Viewed Basics + OOP)
-https://www.youtube.com/watch?v=xTtL8E4LzTQ
+Java Learning:
+    Bro Code Java Course (Viewed Basics + OOP)
+    https://www.youtube.com/watch?v=xTtL8E4LzTQ
 
-Java GUI Tutorial - Make a GUI in 13 Minutes:
-https://www.youtube.com/watch?v=5o3fMLPY7qY
+    Java GUI Tutorial - Make a GUI in 13 Minutes:
+    https://www.youtube.com/watch?v=5o3fMLPY7qY
 
-Java GUI
-https://www.youtube.com/watch?v=7GaAW-DdPuI
+    Java enums (useful)
+    https://www.w3schools.com/java/java_enum_constructor.asp
 
-Java Buttons
-https://www.youtube.com/watch?v=-IMys4PCkIA&list=PLNb_-KeTZieW3DNI2aLOAYBnjx29CN8dT&index=5
+Hub & Minesweeper:
+    Java GUI
+    https://www.youtube.com/watch?v=7GaAW-DdPuI
+
+    Java Buttons
+    https://www.youtube.com/watch?v=-IMys4PCkIA&list=PLNb_-KeTZieW3DNI2aLOAYBnjx29CN8dT&index=5
+
+
+Snake:
+    How to use java swing timer (For The Snake Game)
+    https://stackoverflow.com/questions/1006611/java-swing-timer
+
+    How to paint the grid
+    https://www.geeksforgeeks.org/java/what-is-java-awt-graphics/
+
+    How to draw a line
+    https://www.geeksforgeeks.org/java/java-applet-draw-a-line-using-drawline-method/
+
+    How to draw a rectangle for the snake + food
+    https://www.geeksforgeeks.org/java/draw-ellipse-rectangle-java-applet/
+
+    How to take keyboard inputs from user:
+    https://codehs.com/tutorial/david/java-swing-keyboard-events
