@@ -53,7 +53,7 @@ The **Game Hub** window will open — click a game button to launch it.
 
 ---
 
-## 🧠 Language & Tools
+## Language & Tools
 
 | Item       | Details              |
 |------------|----------------------|
