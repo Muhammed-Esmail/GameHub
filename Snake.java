@@ -134,7 +134,7 @@ public class Snake extends Screen implements ActionListener {
 
     // Returns a random integer [0, lim-1] inclusive
     int pickRandomNumber(int lim) {
-        Random rand = new Random();
+        Random rand = new Random(System.currentTimeMillis());
         return rand.nextInt(lim);
     }
 
